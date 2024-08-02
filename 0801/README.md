@@ -50,7 +50,7 @@ def sequetial_search_that_sorted(arr,n,key):
 #### `추가개념` ( 단축평가를 고려했을 때 두가지 코드 비교 )
 > `i < n and arr[i]<key`
 
-> `arr[i]<key and i < n `
+> `arr[i]<key and i < n ` ✨인덱스에러 뜸✨
 
 ## 🦩 이진검색 binary search 
 
@@ -130,7 +130,7 @@ def selection_sort(arr): # return 없음
 ```python
 def selection_sort(arr , n):
     for i in range(n-2): # [ [0][1][...][n-2][n-1] ]
-        min_idx =1
+        min_idx =i
         for j in range(i+1,n): #[ [...][i][i+1][...][n-1] ]
             if arr[min_idx] > arr[j]:
                 min_idx = j
