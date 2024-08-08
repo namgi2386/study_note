@@ -118,6 +118,8 @@ for tc in range(1,T+1):
     sti ,stj = fstart(n)
 
     visited = [[0]*n for _ in range(n)]
+    
+    print(f'#{tc} {dfs2(sti, stj, n)}')
 ```
 
 
