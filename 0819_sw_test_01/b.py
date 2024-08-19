@@ -52,6 +52,12 @@ def square(arr):
     return little_square_list
 # [[(0, 0), (1, 0), (1, 1), (0, 1)], [(0, 4), (4, 4), (4, 4), (0, 4)], [(4, 0), (4, 0), (4, 1), (4, 1)]]
 
+
+
+
+# square리스트의 각변으로부터 가장가까운 지점 컨택
+    # 컨택이 불가하다면 -1출력
+# ( 시작지점 , 끝지점 , 거리 ) 튜플로 저장
 def dista(square_list):
     sqn = len(square_list)
     dista_list=[]
@@ -68,13 +74,22 @@ def dista(square_list):
                             if square_list[i][0][1]-h == square_list[sqi][3][1] and  square_list[sqi][3][0] <= i1 <= square_list[sqi][2][0]:
                                 dista_list.append( (sqi , i , h-1) )
                 h +=1
+    
+    for i in range(sqn):
+        for i1 in range(square_list[i][1][1] , square_list[i][2][1]+1): # 남쪽전진
+            h=1
+            while is_valid(square_list[i][1][0]+h , i1): # (square_list[i][1][0]+h , i1)
+                if backup_arr[square_list[i][1][0]+h][i1] :
+                    for sqi in range(sqn):
+                        if sqi != i:
+                            #print(i, i1, square_list[i][0][1] - h , square_list[sqi][3][1])
+                            if square_list[i][1][0]+h == square_list[sqi][0][0] and square_list[sqi][0][1] <= i1 <= square_list[sqi][3][1]:
+                                dista_list.append( (sqi , i , h-1) )
+                h +=1
+    # [[(0, 0), (1, 0), (1, 1), (0, 1)], [(0, 4), (4, 4), (4, 4), (0, 4)], [(4, 0), (4, 0), (4, 1), (4, 1)]]
+    
+    
     return list(set(dista_list))
-
-
-
-# square리스트의 각변으로부터 가장가까운 지점 컨택
-    # 컨택이 불가하다면 -1출력
-# ( 시작지점 , 끝지점 , 거리 ) 튜플로 저장
 
 #####################
 # [     1     ]
@@ -82,6 +97,35 @@ def dista(square_list):
 
 # [2] [3]   [4]
 #####################
+
+def get_shortcut():
+    global s
+    global result
+    nn = len(distance_list)
+    sn = len(square_list)
+
+    if len(s) == sn-1:
+        dc_list =[]
+        for dc in range(sn-1):
+            if (s[dc][0] ,s[dc][1]) not in dc_list and (s[dc][1] ,s[dc][0]) not in dc_list:
+                dc_list.append( (s[dc][0] ,s[dc][1]) )
+
+        if len(dc_list) == sn-1:
+            sc_result = 0
+            for sc in range(sn-1):
+                sc_result += s[sc][2]
+                print(sc_result)
+                result = min(sc_result,result)
+        return
+    
+    for i in range(nn): #1 [(0, 1, 2), (2, 1, 1), (2, 0, 2)]
+        di = distance_list[i]
+        if di not in s:
+            s.append(di)
+            #print(f'{i} {di} {s}')
+            get_shortcut()
+            s.pop()
+            #print(f'{i} {di} {s}')
 
 # 123 133 143 231 342 > 선택지 중에서 (n-1)개뽑기
         # n 개의 섬 n-1개의 다리보다 많거나 적을수 있나? 없다.
@@ -101,5 +145,15 @@ for tc in range(1,T+1):
     arr = [list(map(int,input().split())) for _ in range(n) ]
     backup_arr = copy.deepcopy(arr)
     square_list = square(arr)
-    result = dista(square_list)
-    print(f'#{tc} {result}')
+    distance_list = dista(square_list)
+
+    s = []
+    result = n*n
+    get_shortcut()
+    
+
+
+
+
+    #print(f'#{tc} {distance_list}')
+    print(result)
