@@ -18,6 +18,7 @@
 + 👑계층형
 + 👑나무모양
 + 👑차수와 높이로 구성되며, 순환되지 않는다
+  + 높이=깊이=level
 
 
 |지금까지 배운| 자료구조 |
@@ -28,9 +29,11 @@
 |덱|해쉬|
 |연결리스트|<span style="background-color:#FFF5b1;">그래프</span>|
 
+<div style="width:35rem; margin:auto;">
 <img src="https://hanamon.kr/wp-content/uploads/2021/07/%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9-%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5-%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%8B%E1%85%A5.png" alt="트리기본사진">
+</div>
 
-<div><details><summary>👑노드 용어 설명👑 </summary>
+<div><details><summary style="font-size:1.5rem; "><strong>👑노드 용어 설명👑</strong> </summary>
 
 + 루트노드 : 시작노드
 + 부모노드 : 부모노드
@@ -46,28 +49,34 @@
 ---
 ---
 
-## 👕이진트리👕
+## 👕이진트리👕 
 #### 👚기본이진트리
 + 트리형태 중 모든 노드에서의 자식노드가 `최대 2개` 일때, 그 트리가 이진트리
++ 최대높이가 `h` 일때 노드수 최소 `h+1` , 최대 `2^(h+1) -1` 
 
-+ 높이가 `h` 일때 노드수 최소 `h+1` , 최대 `2^(h+1) -1` 
 #### 👚포화이진트리
-+ 높이 `h` 일때 노드수 최대 `2^(h+1) -1` 개 
++ 최대높이 `h` 일때 노드수 최대 `2^(h+1) -1` 개 
 #### 👚완전이진트리
-+ 높이 `h` , 노드수 `n` 개 일때, 포화이진트리의 노드번호 `1번부터 n번까지`의 자리를 차지하고 있는 이진트리
++ 최대높이 `h` , 노드수 `n` 개 일때, 포화이진트리의 노드번호 `1번부터 n번까지`의 자리를 차지하고 있는 이진트리
 #### 👚편향이진트리
-+ 높이 `h` , 노드수 최소 `h+1` 개
++ 최대높이 `h` , 노드수 최소 `h+1` 개 , 한쪽방향진행
 
 
 ## 🩳이진트리 순회🩳
 #### 👒전위 순회 `pre order`
+<div style="width:25rem">
 <img src="https://www.jiwon.me/content/images/size/w1000/2021/11/preorder.png" alt="전위순회">
+</div>
 
 #### 👒중위 순회 `in order`
+<div style="width:25rem">
 <img src="https://www.jiwon.me/content/images/size/w1000/2021/11/inorder.png" alt="중위순회">
+</div>
 
 #### 👒후위 순회 `post order`
+<div style="width:25rem">
 <img src="https://www.jiwon.me/content/images/size/w1000/2021/11/postorder.png" alt="후위순회">
+</div>
 
 <div style="margin-left: auto; border: solid rebeccapurple; height: 2rem; width: 5rem; text-align:center; margin-bottom: 0.5rem "><a href="https://www.jiwon.me/binary-tree-traversal/">img 출처</a></div>
 
