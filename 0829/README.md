@@ -21,6 +21,7 @@
     예제, testcase를 보고 유추해야 하는 정보도 있음   
 5. 💧 드디어 구현
 6. 💧 디버깅
+7. 💧 친구 코드도 확인해보기
 
 ## 🌟복잡도 분석
 > 알고리즘이란, 유한한단계를 통하여 문제를 해결하는 방법
@@ -69,3 +70,38 @@ sys.stdout = open('o1.txt', 'a') # 이어쓰기
   + 16진수 : 2진수를 가독성있게 표현
 
 + 🪂 진수변환 python 구현
+
+<details><summary>🪂2진수변환(비트연산)</summary>
+
+```py
+def dec_to_bin(dec):
+    bin =""
+    for i in range(7,-1,-1):
+        if dec & (1<<i): # 결과값은 0 혹은 1 , 10 , 100 , 10000 등등 가능
+            bin += "1"
+        else:
+            bin += "0"
+    print(bin)
+
+dec_to_bin(149)
+```
+</details>
+
+<details><summary>🪂연습문제</summary>
+
+```py
+for tc in range(1,11):
+    li=[]
+    arr=list(input())
+    n = len(arr)
+    for i in range(n//7):
+        # arr[7*i:7*(i+1)]
+        h=0
+        temp_result =0 
+        for j in range(6,-1,-1):
+            temp_result += (2**h)*int(arr[7*i:7*(i+1)][j])
+            h+=1
+        li.append(temp_result)
+    print(*li)
+```
+</details>
