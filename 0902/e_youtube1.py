@@ -141,3 +141,21 @@ def recur(level,total):
         path.pop()
 
 recur(0,0) # 실행
+
+print('---'*10)
+
+a = [10,20,30]
+n = 3
+b = [0]*n
+
+def my_copy(x):
+    if x ==n:
+        return
+
+    b[x] = a[x]
+    f(x+1)
+my_copy(0)
+print(b)
+
+# 재귀가 언제 끝날지 ==> a == b 일때, 혹은 인덱스가 n이 됐을때 
+# 재귀를 하면서 뭐가 바뀌길 워하는가? == 몇번째 원소에 접근하는지!
