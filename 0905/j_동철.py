@@ -17,14 +17,14 @@ def fact(lev , property):
 
 for tc in range(1,int(input())+1):
     n = int(input())
-    arr=[list(map(lambda x: float(x)/100 ,input().split())) for _ in range(n)]
+    arr=[list(map(lambda x: float(x) ,input().split())) for _ in range(n)]
 
     s = []
     result = 0
-    fact(0,1) # 레벨 , 확률
-    result *=100
-    print(f'#{tc} {result:.6f}')
-
+    if tc<5:
+        fact(0,1) # 레벨 , 확률
+        result /=100.0
+        print(f'#{tc} {result:.6f}')
 
 
 
