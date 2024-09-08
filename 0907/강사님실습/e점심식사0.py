@@ -1,23 +1,14 @@
 import sys
+sys.stdin = open("z3.txt", "r")
 
-sys.stdin = open("sample_input.txt", "r")
-
-
+# 2개 그룹으로 나누기
 def combination(i, s1, s2):
     if i == P:
-        # 모든 사람을 두 그룹으로 나누었다면, 각각의 계단에 대해 시간을 계산
         get_time(s1, s2)
         return
 
-    # i번 사람을 1번 계단으로
-    s1.append(people[i])
-    combination(i + 1, s1, s2)
-    s1.pop()
-
-    # i번 사람을 2번 계단으로
-    s2.append(people[i])
-    combination(i + 1, s1, s2)
-    s2.pop()
+    combination(i + 1, s1 + [people[i]], s2)
+    combination(i + 1, s1, s2 + [people[i]])
 
 
 def calculate_stair_time(stair, people_on_stair):

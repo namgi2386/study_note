@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open('z2.txt' , 'r')
+
 T = int(input())
 
 
@@ -39,9 +42,7 @@ def cook(i, A, B):
 
 for tc in range(1, T + 1):
     N = int(input())
-
     ingredients = [list(map(int, input().split())) for _ in range(N)]
-
     min_diff = float("inf")
 
     cook(0, [], [])
