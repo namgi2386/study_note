@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open('z1.txt' , 'r')
+
 def is_valid(nr,nc):
     return 0<=nr<n and 0<=nc<n
 
