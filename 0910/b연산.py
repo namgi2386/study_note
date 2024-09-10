@@ -1,16 +1,20 @@
 from collections import deque
 
-def hey_you(lev,num,visited):
-    global result
-    if num ==m:
-        result = min(result , lev)
-        return
-    operator =[]
-    if
-    hey_you(lev+1,num+1,visited + [(lev+1,num+1)])
+def rabbit():
+    lev = 0
+    q = deque()
+    q.append((n,lev)) 
+    while q:
+        num , cnt = q.popleft()
+        if num == m: return cnt
+        if 0< num<=limm and visited[num]:
+            visited[num] = 0
+            li = [(num+1,cnt+1),(num-1,cnt+1),(num-10,cnt+1),(num*2,cnt+1)]
+            q.extend(li)
 
 for tc in range(1,int(input())+1):
     n,m = map(int,input().split())
-    result = 1e9
-    visited =[[] for _ in range(1e7)]
-    hey_you(0,n,[(0,n)])
+    limm = 1000020
+    visited =[1]*limm
+    print(f'#{tc} {rabbit()}')
+

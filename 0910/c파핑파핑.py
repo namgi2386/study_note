@@ -27,13 +27,20 @@ for tc in range(1,int(input())+1):
             else:
                 num_arr[i][j] = '*'
 
+    # if tc==1:
+    #     for i in range(n):
+    #         print(*arr[i])
+    #     print()
+    #     for i in range(n):
+    #         print(*num_arr[i])
     cnt = 0
     for i in range(n):
         for j in range(n):
-            q=deque()
             if not num_arr[i][j]:
+                cnt += 1
+                q=deque()
                 q.append((i,j))
-                num_arr[i][j] = 1
+                arr[i][j] = 0
                 while q:
                     r,c = q.popleft()
                     for d in range(8):
@@ -43,23 +50,26 @@ for tc in range(1,int(input())+1):
                             temp = num_arr[nr][nc]
                             if temp == 0:
                                 q.append((nr,nc))
-                                arr[nr][nc] = 1
+                                arr[nr][nc] = 0
                                 num_arr[nr][nc] = '*'
 
                             elif temp != '*':
-                                arr[nr][nc] = 2
+                                arr[nr][nc] = 1
 
     if tc==1:
         for i in range(n):
-            print(arr[i])
+            print(*arr[i])
         print()
         for i in range(n):
-            print(num_arr[i])
+            print(*num_arr[i])
 
-
+    result = 0 
     for i in range(n):
         for j in range(n):
-            pass
+            if arr[i][j] == '.':
+                result += 1
+    print(f'#{tc} {result+cnt}')
+
 
 
 '''
