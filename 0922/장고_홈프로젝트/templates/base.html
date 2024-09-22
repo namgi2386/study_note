@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_base</title>
+</head>
+<body>
+    <a href="{% url "tempapp:index" %}">[main]</a>
+    <a href="{% url "tempapp:create_todo" %}">[CREATE]</a>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
+
+
+{% comment %} 
+파이썬 > 장고  (3개월) 
+
+자바 > 스프링  : 백엔드 
+
+(html + css) + 자바스크립트 > 뷰 , 리엑트 : 프론트 
+
+수업  자바스크립트 > 뷰 , 리엑트  +++ 집에서 더 해서 
+따로 프로젝트도 한다며 {% endcomment %}

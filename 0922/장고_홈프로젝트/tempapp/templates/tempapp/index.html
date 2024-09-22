@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>메인페이지</h1>
+
+    <ul>
+        {% if work %}
+        <p>{{work}}</p>
+            <li><a href="{% url "tempapp:detail" work %}">{{work}}</a></li>
+        {% else %}
+            <li>할일없음</li>
+        {% endif %}
+    </ul>
+
+{% endblock content %}
