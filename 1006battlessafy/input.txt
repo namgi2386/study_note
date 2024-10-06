@@ -1,0 +1,10 @@
+5 5 1 2 1
+G G G G X
+G G G G G
+T G G E1 G
+A T G G G
+G G G G G
+A 100 U 1 0
+E1 10
+X 10
+HI
